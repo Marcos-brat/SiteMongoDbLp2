@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Piadas</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <div id="app" >
+        
+
+
+        <br>
+
+        <div class="col-md-6 mx-auto">
+            <div class="mb-5">
+                <button v-on:click="buscarAleatorio" class="btn btn-primary">Piada Aleatória</button>
+                <div>
+                    <div class="border rounded bg-white p-3 w-auto mt-3">
+                        <h3>{{aleatoria.titulo}}</h3>
+                        <p>{{aleatoria.texto}}</p>
+                        <p>{{aleatoria.categoria}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <h1>Inserir Piadas</h1>
+                <label>Título</label>
+                <input v-model="titulo" class="form-control">
+                <label>Texto</label>
+                <input v-model="texto"  class="form-control">
+                <label>Categoria</label>
+                <select v-model="categoria" class="form-control">
+                    <option disabled selected>-- Selecione uma categoria --</option>
+                    <option 
+                        v-for="cat in categorias" 
+                        v-bind:value="cat._id" 
+                        v-bind:key="cat._id">{{cat.nome}}</option>
+                </select>
+                <button class="btn btn-primary mt-4" v-on:click="inserirPiada">Inserir</button>
+            </div>
+
+
+            <div>
+                <h1>Piada com Filtro</h1>
+                <label>Filtro de piadas (Títulos) </label>
+
+                <div class="d-flex">
+                    <input type="text" v-model="filtro" class="form-control me-3"></input>
+                    <button v-on:click="filtrarPiada" class="btn btn-primary">Filtrar</button>
+                </div>
+                <div>
+                    <div v-for="piada in piadas">
+                        <h3>{{piada.titulo}}</h3>
+                        <p>{{piada.texto}}</p>
+                        <p>{{piada.categoria[0]?.nome}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="../index.js"></script>
+</body>
+</html>
