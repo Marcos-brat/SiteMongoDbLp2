@@ -20,9 +20,9 @@
                 <button v-on:click="buscarAleatorio" class="btn btn-primary">Piada Aleatória</button>
                 <div>
                     <div class="border rounded bg-white p-3 w-auto mt-3">
-                        <h3>{{aleatoria.titulo}}</h3>
-                        <p>{{aleatoria.texto}}</p>
-                        <p>{{aleatoria.categoria}}</p>
+                        <h3>Título: {{aleatoria.titulo}}</h3>
+                        <p>Texto: {{aleatoria.texto}}</p>
+                        <p>Categoria: {{aleatoria.categoria}}</p>
                     </div>
                 </div>
             </div>
@@ -55,9 +55,9 @@
                 </div>
                 <div>
                     <div v-for="piada in piadas">
-                        <h3>{{piada.titulo}}</h3>
-                        <p>{{piada.texto}}</p>
-                        <p>{{piada.categoria[0]?.nome}}</p>
+                        <h3>Título: {{piada.titulo}}</h3>
+                        <p>Texto: {{piada.texto}}</p>
+                        <p>Categoria: {{piada.categoria[0]?.nome}}</p>
                     </div>
                 </div>
             </div>
